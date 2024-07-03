@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// taylor series => e^x = 1 + x/1 + (x^2)/2 + (x^3)/3 + (x^4)/4........... the more the terms the more accuracy.
+
+// effeciennt manner using horners rule : for let's say 4 terms ; 
+
+// e^x = [1+(x/1)*[1+(x/2)*[1+(x/3)*[1+(x/4)*1]]]]
+
+// we will first start with the inner most bracket. 1 + (x/4)* s ; where s is current value =1;
+// e(x,4) is the initial call , so will do (x/4)*s and then we will add 1 to it.
+
+// we will again store all this in s and repeat with 4-1 =3 .
+
+int e(int x,int n){
+    int static s =1 ; // let's say that the initial value is 1 of the total series (we are using a top to bottom approach.)
+    if (n==0){
+        return s ; // at last term return the full value of s
+    }else{
+         s= 1+x*s/n; // here, we created the new term and added to the series (initial value is  1)
+         return e(x,n-1); // multiplying [1+(x/4)*1] with (x/3) and adding 1 and storing it in s again.
+        
+    }
+}
+
+int main()
+{
+    int a =e(20,10);
+    printf("%d\n",a);
+    
+
+    return 0;
+}

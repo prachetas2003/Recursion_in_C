@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int power(int m,int n)
+{
+ if(n==0){
+    return 1;
+ }
+ if (n%2 ==0){
+    return power(m*m,n/2); 
+ }else{
+     
+    return power(m*m,(n-1)/2)*m; 
+ }
+}
+// This is the more efficient manner to write this function.
+//let's say we have 2^8 = if we do , 2*2 , it would now become (2*2)^4!!! n became n/2; 
+//for 2^9 we can do , (2*2)^4 * 2
+//                    this is 
+//                    2^8     * 2 = 2^9
+int main()
+{
+ int r=power(2,3);
+ printf("%d ",r);
+ return 0;
+}

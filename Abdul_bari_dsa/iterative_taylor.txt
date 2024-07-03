@@ -1,0 +1,16 @@
+int e(int x,int n){
+    int s =1;
+    for(;n>0;n--){
+        s=(x*s/n) + 1;
+    }
+    return s;
+}
+
+int main()
+{
+    int a =e(20,10);
+    printf("%d\n",a);
+    
+
+    return 0;
+}

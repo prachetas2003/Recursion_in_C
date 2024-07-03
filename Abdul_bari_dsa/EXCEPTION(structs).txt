@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+struct rectangle{
+
+    int array[9];// Variable arrays not allowed
+
+    int number;
+
+};
+
+void changearray(struct rectangle R1){
+
+    R1.array[0]=6;
+
+    R1.array[1]=7;
+
+    return; 
+
+    ///*** EXCEPTION DISCOVERED
+
+    /// usually, when we pass an array as an argument in a function,
+
+    ///a pointer is created by that fucntion which points to the array
+
+    /// but in this case, a seprate array is created for R1 and the changes are local to only that array 
+
+    /// and not R
+
+   
+
+   
+
+}
+
+int main()
+
+{
+
+    struct rectangle R = {{1,2,3,4,5,6,7,8,9},9};
+
+    
+
+    changearray(R);
+
+    
+
+    
+
+    printf("%d\n",R.array[0]);
+
+    printf("%d\n",R.array[1]);
+
+    
+
+    return 0;
+
+}

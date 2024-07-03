@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+// Define a template class called 'arithmetic'.
+// T is a placeholder for any data type (int, float, double, etc.).
+template <class T>
+class arithmetic {
+private:
+    T a; // First number
+    T b; // Second number
+    
+public:
+    // Constructor to initialize the numbers with values s and k.
+    arithmetic(T s, T k);
+    
+    // Function to add two numbers.
+    T add();
+    
+    // Function to subtract the second number from the first.
+    T sub();
+};
+
+// Implementation of the constructor.
+// 's' and 'k' are copied into the member variables 'a' and 'b'.
+template <class T>
+arithmetic<T>::arithmetic(T s, T k) {
+    this->a = s; // Assign the value of 's' to 'a'.
+    this->b = k; // Assign the value of 'k' to 'b'.
+}
+
+// Implementation of the add function.
+// Returns the sum of 'a' and 'b'.
+template <class T>
+T arithmetic<T>::add() {
+    T c; // Temporary variable to store the sum.
+    c = a + b; // Calculate the sum of 'a' and 'b'.
+    return c; // Return the result.
+}
+
+// Implementation of the sub function.
+// Returns the difference between 'a' and 'b'.
+template <class T>
+T arithmetic<T>::sub() {
+    T c; // Temporary variable to store the difference.
+    c = a - b; // Calculate the difference between 'a' and 'b'.
+    return c; // Return the result.
+}
+
+// Example usage of the 'arithmetic' class.
+int main() {
+    // Create an object of 'arithmetic' for integer type.
+    arithmetic<int> intArith(10, 5);
+    
+    // Demonstrate addition and subtraction.
+    cout << "Addition of 10 and 5: " << intArith.add() << endl;
+    cout << "Subtraction of 5 from 10: " << intArith.sub() << endl;
+
+    // Create an object of 'arithmetic' for floating point type.
+    arithmetic<float> floatArith(10.5, 5.5);
+    
+    // Demonstrate addition and subtraction with floats.
+    cout << "Addition of 10.5 and 5.5: " << floatArith.add() << endl;
+    cout << "Subtraction of 5.5 from 10.5: " << floatArith.sub() << endl;
+    
+    return 0;
+}

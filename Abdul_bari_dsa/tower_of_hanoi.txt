@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void hnoi(int n,char a,char b,char c)// assume we have 3 disks, so this moves
+                                     // all 3 disks from a to c
+{
+    if(n>0){
+        hnoi(n-1,a,c,b); // moving the  n-1 disks from a to b (we know how to move 2 disks from a to c) 
+                        // so we will use that same logic to move the top 2 disks from a to b
+        printf("moving  disk number (from the top)%d %c to %c via %c\n",n,a,c,b);// moves the 3rd disk from a to c via b
+        hnoi(n-1,b,a,c);// now moving the n-1 disks previously kept in b to c
+        
+    }
+    return;
+    
+}
+int main()
+{  
+    hnoi(3,'A','B','C');
+    
+
+    return 0;
+}

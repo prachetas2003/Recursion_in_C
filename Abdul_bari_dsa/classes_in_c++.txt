@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int breadth;
+
+public:
+    // Constructor : this intialises the value of length and breatdh the momemnt a varable of this type is ??       
+    //created, need no seperate initialising function now!
+    Rectangle(int x, int y) {
+        length = x;
+        breadth = y;
+    }
+    
+    // Function to calculate area of the rectangle
+    int area() {
+        return length * breadth;
+    }
+    
+    // Function to change the length of the rectangle
+    void changeLen(int newLength) {
+        length = newLength;
+    }
+};
+
+int main() {
+    // Create a Rectangle object
+    Rectangle rect(10, 5);
+    
+    // Output the area of the rectangle
+    cout << "Initial area of rectangle: " << rect.area() << " square units" << endl;
+    
+    // Change the length of the rectangle
+    rect.changeLen(20);
+    
+    // Output the area of the rectangle after changing its length
+    cout << "Area of rectangle after changing length: " << rect.area() << " square units" << endl;
+    
+    return 0;
+}
