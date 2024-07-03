@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to calculate the sum of numbers from 1 to x with a twist using a static variable
+int func(int x){ 
+    static int g = 0; // Static variable that retains its value between function calls
+    if(x > 0){
+        g++;  // Increment the static variable g each time the function is called
+        // Recursive call to func, adding the current value of g to the return value
+        return func(x-1) + g;
+    }            
+    return 0; // Base case: if x is 0, return 0
+} 
+
+int main(){
+    int a = 5; // Variable to store the upper limit of the sum calculation
+    int c = func(a); // Call the recursive function to calculate the sum
+    printf("%d\n", c); // Print the result
+    return 0; // Return 0 to indicate successful execution
+}
+
+///f(5)-> (f(4) + g) ->f(4)-> (f(3)+g) ->f(3)-> (f(2)+g) -> f(2)-> (f(1)+g) ->f(1)-> (f(0)+g) ->f(0)->0
+
+/// g is used 5 times so use the value of g as 5 

@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+// Forward declaration of function fB to let the compiler know it will be defined later
+void fB(int x);
+
+// Function fA prints a number and calls function fB with the number decremented by 1
+void fA(int n){
+    if(n > 0){  // Base case: Stop recursion when n is no longer greater than 0
+        printf("%d ", n);  // Print the current value of n
+        fB(n-1);  // Call function fB with the current value of n minus 1
+    }
+    // When n is 0 or negative, fA returns without doing anything further
+}
+
+// Function fB prints a number and calls function fA with the number divided by 2
+void fB(int x){
+    if(x > 1){  // Base case: Stop recursion when x is 1 or less
+        printf("%d ", x);  // Print the current value of x
+        fA(x / 2);  // Call function fA with the current value of x divided by 2
+    }
+    // When x is 1 or less, fB returns without doing anything further
+}
+
+int main() {
+    fA(20);  // Start the recursive calls by calling function fA with 20
+
+    return 0;  // Indicate successful completion of the program
+}

@@ -1,0 +1,40 @@
+#include <stdio.h>
+// taylor series => e^x = 1 + x/1 + (x^2)/2 + (x^3)/3 + (x^4)/4........... the more the terms the more accuracy.
+
+// Function to compute e^x using a Taylor series expansion.
+// 'x' is the exponent, and 'n' is the number of terms in the series.
+int e(int x, int n) {
+    // 'numerator' holds the current x to the power of i (x^i).
+    // 'denominator' holds the current factorial of i (i!).
+    static int numerator = 1, denominator = 1;
+    
+    // If n is 0, the first term of the series (1) is returned.
+    if (n == 0) {
+        return 1;
+    } else {
+        // Calculate the sum of the series up to the (n-1)th term.
+        int partial_sum = e(x, n - 1);
+        
+        // Update the numerator to x^i (from x^(i-1)).
+        numerator = numerator * x;
+        
+        // Update the denominator to i! (from (i-1)!).
+        denominator = denominator * n;
+        
+        // The nth term is (x^n / n!), add it to the previous sum.
+        // Here, we add the current term to the sum of previous terms.
+
+
+        return partial_sum + numerator / denominator;// here, we created the new term and added to the series
+    }
+}
+
+int main() {
+    // Calculate e^20 using the first 10 terms of the Taylor series.
+    int result = e(20, 10);
+    
+    // Print the computed value.
+    printf("%d\n", result);
+    
+    return 0;
+}
